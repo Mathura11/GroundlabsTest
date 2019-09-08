@@ -1,0 +1,27 @@
+package com.groundlabs;
+
+import java.lang.reflect.Method;
+
+import ExtentReports.ExtentTestManager;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+/**
+ * Unit test for simple App.
+ */
+public class LoginPageTest  extends BaseTest
+{
+
+	 @Test(priority = 0, description = "Invalid Login Scenario with wrong username and password.")
+	    public void invalidLoginTest_InvalidUserNameInvalidPassword(Method method) {
+            LoginPage loginPage = new LoginPage(driver);
+            
+	      //  ExtentTestManager.startTest(method.getName(), "Invalid Login Scenario with empty username and password.");
+	       loginPage.launchApplication();
+	       loginPage.enterCredentials("math", "1234");
+	    }
+   
+
+   
+}

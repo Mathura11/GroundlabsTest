@@ -1,0 +1,26 @@
+package com.groundlabs;
+
+public class BaseTest {
+	 public WebDriver driver;
+	    public HomePage homePage;
+	 
+	    public WebDriver getDriver() {
+	        return driver;
+	    }
+	 
+	    @BeforeClass
+	    public void classLevelSetup() {
+	        driver = new ChromeDriver();
+	    }
+	 
+	    @BeforeMethod
+	    public void methodLevelSetup() {
+	        homePage = new HomePage(driver);
+	    }
+	 
+	    @AfterClass
+	    public void teardown() {
+	        driver.quit();
+	    }
+	}
+}

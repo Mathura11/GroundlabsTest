@@ -1,0 +1,21 @@
+package com.groundlabs;
+
+import java.lang.reflect.Method;
+
+import org.testng.annotations.Test;
+
+import extentReports.ExtentTestManager;
+
+public class CalculatorTest extends BaseTest{
+
+	LoginPageTest loginTest = new LoginPageTest();
+	@Test( description = "Addition of two nos.")
+	public void additionOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Add 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num3button, calculatorPage.num4button, calculatorPage.plusBtn);
+		calculatorPage.verifyResult(calculatorPage.num3button, calculatorPage.num4button,"+");
+	}
+}

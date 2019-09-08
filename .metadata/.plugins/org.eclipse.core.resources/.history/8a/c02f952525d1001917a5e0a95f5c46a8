@@ -1,0 +1,40 @@
+package com.groundlabs;
+
+import java.lang.reflect.Method;
+
+import org.testng.annotations.Test;
+
+import extentReports.ExtentTestManager;
+
+public class CalculatorTest extends BaseTest{
+
+	LoginPageTest loginTest = new LoginPageTest();
+	@Test( description = "Addition of two nos.")
+	public void additionOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Add 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num3button, calculatorPage.num4button, calculatorPage.plusBtn);
+		calculatorPage.verifyResult(calculatorPage.num3button, calculatorPage.num4button,7);
+	}
+	@Test( description = "Subtraction of two nos.")
+	public void SubtractionOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Subtract 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num9button, calculatorPage.num7button, calculatorPage.minusBtn);
+		calculatorPage.verifyResult(calculatorPage.num9button, calculatorPage.num7button,2);
+	}
+	@Test( description = "Subtraction of two nos.")
+	public void MultiplicationOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Multiply 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num8button, calculatorPage.num5button, calculatorPage.multiplyBtn);
+		calculatorPage.verifyResult(calculatorPage.num8button, calculatorPage.num5button,40);
+	}
+	
+}

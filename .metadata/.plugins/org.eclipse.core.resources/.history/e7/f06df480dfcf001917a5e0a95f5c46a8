@@ -1,0 +1,39 @@
+package com.groundlabs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+/**
+ * Hello world!
+ *
+ */
+public class LoginPage extends BasePage
+{
+	WebDriver driver;
+    public WebDriverWait wait;
+
+	By username = By.id("username");
+	By password = By.id("password");
+	By loginButton = By.id("login");
+    String baseUrl = "http://qa-1.s3-website-ap-southeast-1.amazonaws.com/";
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
+    public LoginPage launchApplication()
+    {
+    	driver.get(baseUrl);
+    	return this;
+    }
+//    public  LoginPage(WebDriver driver) {
+//        this.driver = driver;
+//        
+//    }
+
+public void enterCredentials(String name,String pwd)
+{
+	driver.findElement(username).sendKeys(name);
+	driver.findElement(password).sendKeys(pwd);
+	driver.findElement(loginButton).click();
+}
+}

@@ -1,0 +1,28 @@
+package com.groundlabs;
+
+import org.openqa.selenium.WebDriver;
+
+public class BaseTest {
+	 public WebDriver driver;
+	    
+	 
+	    public WebDriver getDriver() {
+	        return driver;
+	    }
+	 
+	    @BeforeClass
+	    public void classLevelSetup() {
+	        driver = new ChromeDriver();
+	    }
+	 
+	    @BeforeMethod
+	    public void methodLevelSetup() {
+	        homePage = new HomePage(driver);
+	    }
+	 
+	    @AfterClass
+	    public void teardown() {
+	        driver.quit();
+	    }
+	}
+}

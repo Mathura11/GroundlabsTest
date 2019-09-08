@@ -1,0 +1,48 @@
+package com.groundlabs;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+/**
+ * Unit test for simple App.
+ */
+public class LoginPageTest  
+{
+	 @Test(priority = 0, description = "Invalid Login Scenario with wrong username and password.")
+	    public void invalidLoginTest_InvalidUserNameInvalidPassword(Method method) {
+	        //ExtentReports Description
+	        ExtentTestManager.startTest(method.getName(), "Invalid Login Scenario with empty username and password.");
+	 
+	        homePage
+	            .goToN11()
+	            .goToLoginPage()
+	            .loginToN11("onur@swtestacademy.com", "11223344")
+	            .verifyLoginPassword("E-posta adresiniz veya şifreniz hatalı");
+	    }
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+    public LoginPageTest( String testName )
+    {
+        super( testName );
+    }
+
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( LoginPageTest.class );
+    }
+
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp()
+    {
+        assertTrue( true );
+    }
+}

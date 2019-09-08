@@ -1,0 +1,43 @@
+package com.groundlabs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class CalculatorPage extends BasePage {
+
+	public CalculatorPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	WebDriver driver;
+	By num0button = By.xpath("//button[text()='0']");
+	By num1button = By.xpath("//button[text()='1']");
+	By num2button = By.xpath("//button[text()='2']");
+	By num3button = By.xpath("//button[text()='3']");
+	By num4button = By.xpath("//button[text()='4']");
+	By num5button = By.xpath("//button[text()='5']");
+	By num6button = By.xpath("//button[text()='6']");
+	By num7button = By.xpath("//button[text()='7']");
+	By num8button = By.xpath("//button[text()='8']");
+	By num9button = By.xpath("//button[text()='9']");
+	By plusBtn = By.xpath("//button[text()='+']");
+	By minusBtn = By.xpath("//button[text()='-']");
+	By multiplyBtn = By.xpath("//button[text()='*']");
+	By divideBtn = By.xpath("//button[text()='÷']");
+	By equalToBtn = By.xpath("//button[text()='=']");
+
+
+	public void calculate(By element1,By element2,By operator) throws InterruptedException
+	{
+		Thread.sleep(5000);
+		click(element1);
+		click(element2);
+		click(operator);
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,54 @@
+package com.groundlabs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import com.relevantcodes.extentreports.LogStatus;
+
+import extentReports.ExtentTestManager;
+
+/**
+ * Hello world!
+ *
+ */
+public class LoginPage extends BasePage
+{
+    public WebDriverWait wait;
+
+	By username = By.id("username");
+	By password = By.id("password");
+	By loginButton = By.id("login");
+	By userNameError = By.id("usernameErr");
+    String baseUrl = "http://qa-1.s3-website-ap-southeast-1.amazonaws.com/";
+    String usernameError = "Invalid Username";
+    public LoginPage(WebDriver driver) {
+        super(driver);
+
+    }
+    public LoginPage launchApplication()
+    {
+    	this.driver.get(baseUrl);
+    	ExtentTestManager.getTest().log(LogStatus.INFO, "Application is launched");
+    	return this;
+    }
+   
+
+public void enterCredentials(String name,String pwd) throws InterruptedException
+{
+	Thread.sleep(2000);
+	driver.findElement(username).sendKeys(name);
+	driver.findElement(password).sendKeys(pwd);
+	driver.findElement(loginButton).click();
+	ExtentTestManager.getTest().log(LogStatus.INFO, "Credentials are entered");
+}
+public void verifyMessage() throws InterruptedException
+
+{
+	String message = driver.findElement(userNameError).getText();
+	Assert.assertEquals(message, usernameError);
+	Thread.sleep(2000);
+}
+}

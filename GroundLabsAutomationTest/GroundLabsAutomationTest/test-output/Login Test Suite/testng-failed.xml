@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Login Test Suite]">
+  <listeners>
+    <listener class-name="Listeners.TestListener"/>
+  </listeners>
+  <test name="LoginTest">
+    <classes>
+      <class name="com.groundlabs.LoginPageTest">
+        <methods>
+          <include name="invalidLoginTest_InvalidUserNameInvalidPassword"/>
+        </methods>
+      </class> <!-- com.groundlabs.LoginPageTest -->
+    </classes>
+  </test> <!-- LoginTest -->
+  <test name="LoginTest(failed)">
+    <classes>
+      <class name="com.groundlabs.LoginPageTest">
+        <methods>
+          <include name="invalidLoginTest_InvalidUserNameInvalidPassword" invocation-numbers="0"/>
+          <include name="teardown"/>
+          <include name="classLevelSetup"/>
+          <include name="methodLevelSetup"/>
+        </methods>
+      </class> <!-- com.groundlabs.LoginPageTest -->
+    </classes>
+  </test> <!-- LoginTest(failed) -->
+</suite> <!-- Failed suite [Login Test Suite] -->

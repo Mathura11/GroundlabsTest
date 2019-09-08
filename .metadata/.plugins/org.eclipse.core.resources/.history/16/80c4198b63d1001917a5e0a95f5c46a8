@@ -1,0 +1,80 @@
+package com.groundlabs;
+
+import java.lang.reflect.Method;
+
+import org.testng.annotations.Test;
+
+import extentReports.ExtentTestManager;
+
+public class CalculatorTest extends BaseTest{
+
+	LoginPageTest loginTest = new LoginPageTest();
+	@Test( description = "Addition of two nos.")
+	public void additionOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Add 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num3button, calculatorPage.num4button, calculatorPage.plusBtn);
+		calculatorPage.verifyResult(calculatorPage.num3button, calculatorPage.num4button,7);
+	}
+	@Test( description = "Subtraction of two nos.")
+	public void SubtractionOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Subtract 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num9button, calculatorPage.num7button, calculatorPage.minusBtn);
+		calculatorPage.verifyResult(calculatorPage.num9button, calculatorPage.num7button,2);
+	}
+	@Test( description = "Multiplication of two nos.")
+	public void MultiplicationOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Multiply 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num8button, calculatorPage.num5button, calculatorPage.multiplyBtn);
+		calculatorPage.verifyResult(calculatorPage.num8button, calculatorPage.num5button,40);
+	}
+
+	@Test( description = "Division of two nos.")
+	public void DivisionOfTwoNumbers(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "Divide 2 nos");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.calculate(calculatorPage.num8button, calculatorPage.num2button, calculatorPage.divideBtn);
+		calculatorPage.verifyResult(calculatorPage.num8button, calculatorPage.num2button,4);
+	}
+	@Test( description = "Addition of one positive and one negative no.")
+	public void AdditionofPositiveAndNegativeNum(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "add one positive and one negative no.");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.click(calculatorPage.minusBtn);
+		calculatorPage.calculate(calculatorPage.num8button, calculatorPage.num2button, calculatorPage.plusBtn);
+		calculatorPage.verifyResult(calculatorPage.num8button, calculatorPage.num2button,-6);
+	}
+	@Test( description = "Subtraction of one positive and one negative no.")
+	public void SubtractionofPositiveAndNegativeNum(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "subtract one positive and one negative no.");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.click(calculatorPage.minusBtn);
+		calculatorPage.calculate(calculatorPage.num7button, calculatorPage.num1button, calculatorPage.minusBtn);
+		calculatorPage.verifyResult(calculatorPage.num7button, calculatorPage.num1button,-8);
+	}
+	@Test( description = "Subtraction of one positive and one negative no.")
+	public void MultiplicationofPositiveAndNegativeNum(Method method) throws InterruptedException {
+		ExtentTestManager.startTest(method.getName(), "multiply one positive and one negative no.");
+		loginPage.launchApplication();
+		loginPage.enterCredentials("qatest", "abcdefg");
+		loginPage.verifySuccessfulLogin();
+		calculatorPage.click(calculatorPage.minusBtn);
+		calculatorPage.calculate(calculatorPage.num9button, calculatorPage.num3button, calculatorPage.plusBtn);
+		calculatorPage.verifyResult(calculatorPage.num7button, calculatorPage.num1button,-8);
+	}
+	
+}

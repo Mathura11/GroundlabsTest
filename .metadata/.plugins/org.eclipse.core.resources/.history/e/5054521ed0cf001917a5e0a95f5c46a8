@@ -1,0 +1,29 @@
+package com.groundlabs;
+
+import java.lang.reflect.Method;
+
+import ExtentReports.ExtentTestManager;
+
+import org.testng.annotations.Test;
+
+/**
+ * Unit test for simple App.
+ */
+public class LoginPageTest  extends BaseTest
+{
+	 @Test(priority = 0, description = "Invalid Login Scenario with wrong username and password.")
+	    public void invalidLoginTest_InvalidUserNameInvalidPassword(Method method) {
+            LoginPage loginPage = new LoginPage();
+            
+	        ExtentTestManager.startTest(method.getName(), "Invalid Login Scenario with empty username and password.");
+	 
+	        homePage
+	            .goToN11()
+	            .goToLoginPage()
+	            .loginToN11("onur@swtestacademy.com", "11223344")
+	            .verifyLoginPassword("E-posta adresiniz veya şifreniz hatalı");
+	    }
+   
+
+   
+}
