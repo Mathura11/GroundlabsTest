@@ -4,6 +4,7 @@ Groundlabs automation test
  Java version - 1.8
  IDE used - Eclipse Neon.1a
  selenium webdriver
+ You can import the project as it is in eclipse workspace
  For running the testcase,right click on TESTNG.xml file .select Run As-->TestNG suite.
  After successful completion of test extent report can be viewed in the below mentioned path.
  
